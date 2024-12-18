@@ -1,14 +1,17 @@
 const express = require('express');
 const router = express.Router();
-
+const posts = require('../posts')
 //index
 router.get('/', (req,res) => {
-    res.send('Visualizzo tutti i piatti')
+    res.json(posts)
 })
 
 //show
-router.get('/:id', (req,res)=>{
-    res.send(`Visualizzo un solo piatto tramite id ${req.params.id}`)
+router.get('/:title', (req,res)=>{
+    const titolo = posts.find (post => {
+        return post.title === req.params.title
+    })
+    res.json(titolo)
 })
 
 //store

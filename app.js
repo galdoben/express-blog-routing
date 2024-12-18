@@ -8,11 +8,9 @@ const {log} = require('console')
 
 
 
+
+
 app.use('/posts', postsRouter)
-
-
-
-
 
 
 
